@@ -8,7 +8,7 @@ This repository provides a generator for discrete Hawkes process that incorporat
 - Initialized model with ${\tt beta}$ and ${\tt mu\_config}$, which describes the value of the parameters of the discrete Hawkes process (see equation above).
 - ${\tt simulate()}$ : Simulate a trajectory of event occurance of length $\tt t$. A list of intensity rates ${\tt lam}$ is returned as the output. One can also set parameter ${\tt plot = True}$ to automatically visualize the simulated trajectory.
 - ${\tt generate()}$ : Given previous trajectory ${\tt prev _ traj}$, generate future trajectory of length ${\tt t}$.
-- ${\tt plot _ mu()}$ : Plot the base intensity rate $\mu(t)$ on $[0, {\tt t}]$.
+- ${\tt plot \_ mu()}$ : Plot the base intensity rate $\mu(t)$ on $[0, {\tt t}]$.
 
 Demos for the plots are shown below
 
