@@ -10,7 +10,7 @@ This repository provides a generator for discrete Hawkes process that incorporat
 - ${\tt generate()}$ : Given previous trajectory ${\tt prev \textunderscore traj}$, generate future trajectory of length ${\tt t}$.
 - ${\tt plot \textunderscore mu()}$ : Plot the base intensity rate $\mu(t)$ on $[0, {\tt t}]$.
 
-Demos for the plots are shown below
+Demos for the plots are shown below.
 
 ![fig1](/img/fig1.png) 
 
