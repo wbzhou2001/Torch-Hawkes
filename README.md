@@ -1,7 +1,8 @@
 # Discrete Hawkes Generator
 
-A dicrete Hawkes process is characterized by its discrete time intensity rate $\lambda_t$, $t \in \mathbb{N}_+$
-$$\lambda_t = \mu(t) + \sum_{t' < t} \beta e^{- \beta (t - t')}.$$
+A dicrete Hawkes process is characterized by its discrete time intensity rate $\lambda_t$, $t \in \mathbb{N}_+$, 
+
+$\lambda_t = \mu(t) + \sum_{t' < t} \beta e^{- \beta (t - t')}.$
 
 This repository provides a generator for discrete Hawkes process that incorporates the following methods:
 - Initialized model with ${\tt beta}$ and ${\tt mu\_config}$, which describes the value of the parameters of the discrete Hawkes process (see equation above).
