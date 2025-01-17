@@ -28,8 +28,11 @@ $$\lambda_t = \mu(t) + \sum_{t' < t} \beta e^{- \beta (t - t')}.$$
 - ${\tt simulate()}$ : Simulate a trajectory of event occurance of length $\tt t$. A list of intensity rates ${\tt lam}$ is returned as the output. One can also set parameter ${\tt plot = True}$ to automatically visualize the simulated trajectory.
 - ${\tt generate()}$ : Given previous trajectory ${\tt prev \textunderscore traj}$, generate future trajectory of length ${\tt t}$.
 - ${\tt plot \textunderscore mu()}$ : Plot the base intensity rate $\mu(t)$ on $[0, {\tt t}]$.
+---!>
 
 Demos for the plots are shown below.
+
+<img src="/img/fig1.png" alt="fig1" style="width:33%;"/>
 
 ![fig1](/img/fig1.png) 
 
