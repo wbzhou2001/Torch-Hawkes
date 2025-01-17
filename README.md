@@ -1,6 +1,6 @@
 # Hawkes-Process
 
-Pytorch-based Hawkes Process. Featuring:
+Pytorch-based Hawkes Process all-in-one implementation. Featuring:
 - Offers both discrete and continuous Hawkes process models
 - Flexible choice self-excitation kernel specification
 - Parameter fitting using Maximum likelihood (MLE) and Expectation-Maximization (EM) algorithms
