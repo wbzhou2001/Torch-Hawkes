@@ -1,3 +1,11 @@
+# Hawkes-Process
+
+Pytorch-based Hawkes Process. Featuring:
+- Offers both discrete and continuous Hawkes process models
+- Flexible choice self-excitation kernel specification
+- Parameter fitting using Maximum likelihood (MLE) and Expectation-Maximization (EM) algorithms
+- Sampling using thinning algorithm
+
 # Discrete Hawkes Generator
 
 A dicrete Hawkes process is characterized by its discrete time intensity rate $\lambda_t$, $t \in \mathbb{N}_+$, 
