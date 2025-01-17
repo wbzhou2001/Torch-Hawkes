@@ -8,7 +8,7 @@ All-in one PyTorch-based implementations of classical Hawkes process algorithms,
   - Discrete Hawkes process (discrete time, discrete space)
   - Multivariate Hawkes process (continuous time, discrete space)
   - Spatio-Temporal Hawkes process (continuous time, continuous sapce)
-- Flexible choice self-excitation kernel specification
+- Flexible choice of self-excitation kernels
 - Parameter fitting using Maximum likelihood (MLE) and Expectation-Maximization (EM) algorithms
 - Sampling using the Thinning algorithm
 
