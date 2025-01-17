@@ -32,7 +32,11 @@ $$\lambda_t = \mu(t) + \sum_{t' < t} \beta e^{- \beta (t - t')}.$$
 
 Demos for the plots are shown below.
 
-<img src="/img/fig1.png" alt="fig1" style="width:33%;"/>
+<div style="display: flex; align-items: center; justify-content: space-around;">
+    <img src="/img/fig1.png" alt="fig1" style="width:30%;"/>
+    <img src="/img/fig2.png" alt="fig2" style="width:30%;"/>
+    <img src="/img/fig3.png" alt="fig3" style="width:30%;"/>
+</div>
 
 ![fig1](/img/fig1.png) 
 
