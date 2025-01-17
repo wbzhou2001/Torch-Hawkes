@@ -1,10 +1,10 @@
 # Hawkes-Process
 
-Pytorch-based Hawkes Process all-in-one implementation. Featuring:
+All-in one PyTorch-based implementations of classical Hawkes process algorithms, featuring:
 - Offers both discrete and continuous Hawkes process models
 - Flexible choice self-excitation kernel specification
 - Parameter fitting using Maximum likelihood (MLE) and Expectation-Maximization (EM) algorithms
-- Sampling using Thinning Algorithm
+- Sampling using the Thinning algorithm
 
 # References:
 1. [Uncertainty Conformal Prediction for Spatio-Temporal Point Processes](https://arxiv.org/abs/2411.12193)
