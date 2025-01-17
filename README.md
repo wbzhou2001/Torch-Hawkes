@@ -1,6 +1,9 @@
 [![PyPI](https://img.shields.io/pypi/v/sklearn_ensemble_cv?label=pypi)](https://pypi.org/project/)
 [![PyPI-Downloads](https://img.shields.io/pepy/dt/sklearn_ensemble_cv)](https://pepy.tech/project/)
 
+[![PyPI](https://img.shields.io/pypi/v/hawkes?label=pypi)](https://pypi.org/project/hawkes)
+[![PyPI-Downloads](https://img.shields.io/pepy/dt/hawkes)](https://pepy.tech/project/hawkes)
+
 # Hawkes Process
 
 All-in one PyTorch-based implementations of classical Hawkes process algorithms, featuring:
