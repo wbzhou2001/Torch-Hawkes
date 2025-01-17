@@ -269,3 +269,49 @@ class ExponentialMultivariateHawkes(BaseMultivariateHawkes):
         - [ batch_size ] torch
         '''
         return self.mu_[x[:, 1].long()]  # [ batch_size ] torch 
+
+
+if __name__ == '__main__':
+
+    n_space = 10
+    n_data  = 1000 
+
+    s = np.random.uniform(0, n_space, n_data).astype(int)
+    t = np.random.randn(n_data)
+    t = t[t.argsort()]
+    data = np.stack([t, s], -1)         # [ n_data, 2 ] np
+
+    kwargs = {
+        'base_kwargs':      {
+            'T':        [0., 1.],
+            'n_space':  n_space,
+            'int_res':  10
+        },
+        'kernel_kwargs':    {
+            'alpha':    np.eye(n_space) * 1e-1,
+            'beta':     1e-1 
+        }, 
+        'mu':           np.ones(n_space)
+    }
+
+    fit_kwargs = {
+        'data':         data,
+        'batch_size':   124,
+        'num_epochs':   10,
+        'lr':           1e-1,
+        'save_folder':  'cache/multivariate_hawkes'
+    }
+
+    model = ExponentialMultivariateHawkes(**kwargs)
+    model.fit(**fit_kwargs)
+
+
+    sim_kwargs = {
+        'data':     data,
+        't_start':  0.5,
+        't_end':    1.3,
+        'ls_kwargs':{},
+        'verbose':  True
+    }
+
+    sim_traj = model.simulate(**sim_kwargs)

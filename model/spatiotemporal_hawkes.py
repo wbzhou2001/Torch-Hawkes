@@ -273,3 +273,46 @@ class SpatioTemporalExponentialHawkes(BaseSpatioTemporalHawkes):
         - [ batch_size ] torch
         '''
         return self.mu_(xi).reshape(-1)
+    
+
+if __name__ == '__main__':
+
+    data = np.random.uniform(0, 1, size = [1000, 3])
+    indices = data[:, 0].argsort()
+    data    = data[indices] # [ batch_size, 3 ]
+
+    kwargs = {
+        'base_kwargs':      {
+            'T':                [0., 1.],
+            'S':                [[0., 1.], [0., 1.]],
+            'data_dim':         3,
+            'numerical_int':    True,
+            'int_res':          10
+        },
+        'kernel_kwargs':    {
+            'alpha':    1e-1,
+            'beta':     1e-1
+        }
+    }
+
+    fit_kwargs = {
+        'data':         data,
+        'batch_size':   124,
+        'num_epochs':   11,
+        'lr':           1e-1,
+        'save_folder':  'cache/spatiotemporal_hawkes'
+    }
+
+    model = SpatioTemporalExponentialHawkes(**kwargs)
+    model.fit(**fit_kwargs)
+
+
+    sim_kwargs = {
+        'data':     data,
+        't_start':  0.5,
+        't_end':    1.3,
+        'ls_kwargs':{},
+        'verbose':  True
+    }
+
+    sim_traj = model.simulate(**sim_kwargs)
