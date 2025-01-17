@@ -12,6 +12,14 @@ All-in one PyTorch-based implementations of classical Hawkes process algorithms,
 - Parameter fitting using Maximum likelihood (MLE) and Expectation-Maximization (EM) algorithms
 - Sampling using the Thinning algorithm
 
+# Visualizations
+
+<div style="display: flex; align-items: center; justify-content: space-around;">
+    <img src="/img/fig1.png" alt="fig1" style="width:30%;"/>
+    <img src="/img/fig2.png" alt="fig2" style="width:30%;"/>
+    <img src="/img/fig3.png" alt="fig3" style="width:30%;"/>
+</div>
+
 # References:
 1. [Uncertainty Conformal Prediction for Spatio-Temporal Point Processes](https://arxiv.org/abs/2411.12193)
 2. [Neural Spectral Marked Point Processes](https://iclr.cc/virtual/2022/poster/6311)
@@ -28,19 +36,5 @@ $$\lambda_t = \mu(t) + \sum_{t' < t} \beta e^{- \beta (t - t')}.$$
 - ${\tt simulate()}$ : Simulate a trajectory of event occurance of length $\tt t$. A list of intensity rates ${\tt lam}$ is returned as the output. One can also set parameter ${\tt plot = True}$ to automatically visualize the simulated trajectory.
 - ${\tt generate()}$ : Given previous trajectory ${\tt prev \textunderscore traj}$, generate future trajectory of length ${\tt t}$.
 - ${\tt plot \textunderscore mu()}$ : Plot the base intensity rate $\mu(t)$ on $[0, {\tt t}]$.
----!>
 
-Demos for the plots are shown below.
-
-<div style="display: flex; align-items: center; justify-content: space-around;">
-    <img src="/img/fig1.png" alt="fig1" style="width:30%;"/>
-    <img src="/img/fig2.png" alt="fig2" style="width:30%;"/>
-    <img src="/img/fig3.png" alt="fig3" style="width:30%;"/>
-</div>
-
-![fig1](/img/fig1.png) 
-
-![fig1](/img/fig2.png)
-
-![fig1](/img/fig3.png)
 ---!>
