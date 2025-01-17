@@ -11,7 +11,7 @@ All-in one PyTorch-based implementations of classical Hawkes process algorithms,
 - Flexible choice of self-excitation kernels
 - Parameter fitting using maximum likelihood (MLE) and expectation-maximization (EM) algorithms
 - Sampling using the thinning algorithm
-  - Offers $\lambda$-scheduler for speed-up 
+  - Offers $\lambda$-scheduler for fast thinning 
 
 # Visualizations
 
