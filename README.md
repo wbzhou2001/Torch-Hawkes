@@ -1,8 +1,8 @@
 [![PyPI](https://img.shields.io/pypi/v/sklearn_ensemble_cv?label=pypi)](https://pypi.org/project/)
 [![PyPI-Downloads](https://img.shields.io/pepy/dt/sklearn_ensemble_cv)](https://pepy.tech/project/)
 
-[![PyPI](https://img.shields.io/pypi/v/hawkes?label=pypi)](https://pypi.org/project/hawkes)
-[![PyPI-Downloads](https://img.shields.io/pepy/dt/hawkes)](https://pepy.tech/project/hawkes)
+[![PyPI](https://img.shields.io/pypi/v/torch-hawkes?label=pypi)](https://pypi.org/project/torch-hawkes)
+[![PyPI-Downloads](https://img.shields.io/pepy/dt/torch-hawkes)](https://pepy.tech/project/torch-hawkes)
 
 # Hawkes Process
 
