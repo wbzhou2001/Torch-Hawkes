@@ -21,7 +21,7 @@ All-in one PyTorch-based implementations of classical Hawkes process algorithms,
     <img src="/img/fig3.png" alt="fig3" style="width:30%;"/>
 </div>
 
-# References:
+# Acknowledgement & References:
 1. [Hierarchical Conformal Prediction for Spatio-Temporal Point Processes](https://arxiv.org/abs/2411.12193)
 2. [Neural Spectral Marked Point Processes](https://iclr.cc/virtual/2022/poster/6311)
 
