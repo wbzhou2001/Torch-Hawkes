@@ -6,6 +6,11 @@ Pytorch-based Hawkes Process all-in-one implementation. Featuring:
 - Parameter fitting using Maximum likelihood (MLE) and Expectation-Maximization (EM) algorithms
 - Sampling using thinning algorithm
 
+# References:
+1. [Uncertainty Conformal Prediction for Spatio-Temporal Point Processes](https://arxiv.org/abs/2411.12193)
+2. [Neural Spectral Marked Point Processes](https://iclr.cc/virtual/2022/poster/6311)
+
+<!---
 # Discrete Hawkes Generator
 
 A dicrete Hawkes process is characterized by its discrete time intensity rate $\lambda_t$, $t \in \mathbb{N}_+$, 
@@ -25,3 +30,4 @@ Demos for the plots are shown below.
 ![fig1](/img/fig2.png)
 
 ![fig1](/img/fig3.png)
+---!>
