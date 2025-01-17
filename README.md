@@ -4,7 +4,7 @@
 # Torch Hawkes
 
 All-in one PyTorch-based implementations of classical Hawkes process algorithms, featuring:
-- Offers three model variants:
+- Three available model variants:
   - Discrete Hawkes process (discrete time, discrete space)
   - Multivariate Hawkes process (continuous time, discrete space)
   - Spatio-Temporal Hawkes process (continuous time, continuous sapce)
