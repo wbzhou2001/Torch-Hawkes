@@ -1,6 +1,5 @@
 [![PyPI](https://img.shields.io/pypi/v/torch-hawkes?label=pypi)](https://pypi.org/project/torch-hawkes)
 [![PyPI-Downloads](https://img.shields.io/pepy/dt/torch-hawkes)](https://pepy.tech/project/torch-hawkes)
-![Build Status](https://github.com/<username>/<repo>/actions/workflows/<workflow-file>.yml/badge.svg)
 
 # Hawkes Process
 
