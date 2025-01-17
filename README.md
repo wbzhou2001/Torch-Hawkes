@@ -1,7 +1,7 @@
 [![PyPI](https://img.shields.io/pypi/v/torch-hawkes?label=pypi)](https://pypi.org/project/torch-hawkes)
 [![PyPI-Downloads](https://img.shields.io/pepy/dt/torch-hawkes)](https://pepy.tech/project/torch-hawkes)
 
-# Hawkes Process
+# Torch Hawkes
 
 All-in one PyTorch-based implementations of classical Hawkes process algorithms, featuring:
 - Offers three model variants:
