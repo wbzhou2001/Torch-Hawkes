@@ -1,4 +1,4 @@
-# Hawkes-Process
+# Hawkes Process
 
 All-in one PyTorch-based implementations of classical Hawkes process algorithms, featuring:
 - Offers three model variants:
