@@ -39,15 +39,15 @@ class TemporalPointProcess:
 
     def M_step(self):
         '''update the parameters'''
-        m0          = np.triu(self.P, k = 1).sum()
+        m0          = np.diag(self.P).sum()
         self.mu     = m0 / self.T
-        m1          = np.diag(self.P).sum()
+        m1          = np.triu(self.P, k = -1).sum()
         self.alpha  = m1 / self.N
         # TODO: how to update beta?
         return self.mu, self.alpha
 
     def EM(self, niter):
-        mu_, alpha_ = [], []
+        mu_, alpha_ = [self.mu], [self.alpha]
         for i in tqdm(range(niter)):
             self.E_step()
             a, b = self.M_step()
@@ -57,12 +57,12 @@ class TemporalPointProcess:
         plt.plot(alpha_, label = 'Update trajectopry for ' + r'$\alpha$')
         plt.legend()
         plt.show()
-        print(f'Fittted Results: Mu = {self.mu}, Alpha = {self.alpha}')
+        print(f'Fitted Results: Mu = {self.mu}, Alpha = {self.alpha}')
         return None
     
 if __name__ == '__main__':
 
-    events = np.random.uniform(0, 1, 20)
+    events = np.random.uniform(0, 1, 200)
     events.sort()
 
     kwds = {
