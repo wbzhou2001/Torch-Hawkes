@@ -1,8 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
+import imageio
+import os
 
-class TemporalPointProcess:
+class TemporalPointProcess_:
 
     def __init__(self, events, T = 1., mu = 1., alpha = 1., beta = 1.):
         '''
@@ -25,52 +27,61 @@ class TemporalPointProcess:
     def lam(self, event):
         mask        = self.events < event
         intervals   = event - self.events[mask] # [ N(t) ]
-        a = self.mu + self.kernel(intervals).sum()
-        return a
+        if mask.sum() == 0:
+            return self.mu
+        else:
+            return self.mu + self.kernel(intervals).sum()
 
     def E_step(self):
         '''update the triggering matrix'''
         for i in range(self.N):
             base = self.lam(self.events[i])
             for j in range(i):
-                self.P[j, i] = self.kernel(self.events[i] - self.events[j]) / base # u_ji
+                self.P[j, i] = self.kernel(self.events[i] - self.events[j]) / base # u_ji, influence from j to i
             self.P[i, i] = self.mu / base # u_0i
-        return None
+        return self.P
 
     def M_step(self):
         '''update the parameters'''
         m0          = np.diag(self.P).sum()
         self.mu     = m0 / self.T
-        m1          = np.triu(self.P, k = -1).sum()
+        m1          = np.triu(self.P, k = 1).sum()
         self.alpha  = m1 / self.N
         # TODO: how to update beta?
-        return self.mu, self.alpha
+        return self.mu, self.alpha, self.beta
 
-    def EM(self, niter):
-        mu_, alpha_ = [self.mu], [self.alpha]
+    def EM(self, niter, gif = False):
+        folder = 'cache/figs'
+        os.makedirs(folder, exist_ok=True)
+
+        mu_, alpha_, beta_, P_ = [self.mu], [self.alpha], [self.beta], [self.P]
         for i in tqdm(range(niter)):
-            self.E_step()
-            a, b = self.M_step()
+            P = self.E_step()
+            a, b, c = self.M_step()
             mu_.append(a)
             alpha_.append(b)
+            beta_.append(c)
+
+            if gif:
+                P_.append(P)
+                plt.imshow(np.tril(P, k = 1))
+                plt.title(f'Iteration {i}')
+                plt.colorbar()
+                plt.savefig(folder + f'/iter_{i}.png')
+                plt.close()
+        
+        if gif:
+            filenames = [ folder + f'/iter_{i}.png' for i in range(niter) ]
+            with imageio.get_writer('triggering_matrix.gif', duration=0.1) as writer:
+                for filename in filenames:
+                    image = imageio.imread(filename)
+                    writer.append_data(image)
+
         plt.plot(mu_, label = 'Update trajectopry for ' + r'$\mu$')
         plt.plot(alpha_, label = 'Update trajectopry for ' + r'$\alpha$')
+        plt.plot(beta_, label = 'Update trajectopry for ' + r'$\beta$')
+        # make an animation of P evolution...
         plt.legend()
         plt.show()
-        print(f'Fitted Results: Mu = {self.mu}, Alpha = {self.alpha}')
+        print(f'Fitted Results: Mu = {self.mu}, Alpha = {self.alpha}, Beta = {self.beta}.')
         return None
-    
-if __name__ == '__main__':
-
-    events = np.random.uniform(0, 1, 200)
-    events.sort()
-
-    kwds = {
-        'alpha':    1e-1,
-        'mu':       1e-1,
-        'beta':     1e-1,
-        'T':        1
-    }
-
-    tpp = TemporalPointProcess(events, **kwds)
-    tpp.EM(100)
