@@ -85,3 +85,29 @@ class TemporalPointProcess_:
         plt.show()
         print(f'Fitted Results: Mu = {self.mu}, Alpha = {self.alpha}, Beta = {self.beta}.')
         return None
+
+if __name__ == '__main__':
+
+    # NOTE: this demo requires Woody's point process simulator to be imported.
+    kwds = {
+        'alpha':    5e-1,
+        'mu':       1e-0,
+        'beta':     1., # fixed parameter
+        'T':        300.
+    }
+    mu = 1
+    alpha = 0.8
+    
+    # generate events
+    T      = [0., kwds['T']]
+    beta   = kwds['beta']
+    kernel = ExpKernel(beta=beta, alpha = alpha)
+    lam    = HawkesLam(mu, kernel, maximum=1e+3)
+    pp     = TemporalPointProcess(lam)
+    points, sizes = pp.generate(
+        T=T, batch_size=1, verbose=False)
+    events = points.reshape(-1) # 1d array
+    
+    # EM algorithm
+    tpp = TemporalPointProcess_(events, **kwds)
+    tpp.EM(30, gif = True)
